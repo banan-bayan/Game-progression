@@ -1,0 +1,21 @@
+name: Node CI
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [17.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: make compose-setup
+      - name: Run linter
+        run: make compose-lint
+      - name: Run test
+        run: make compose-test
