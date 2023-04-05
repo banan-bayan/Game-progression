@@ -4,9 +4,7 @@
   "description": "*simple math console game*",
   "main": "index.js",
   "bin": {
-    "game-progression": "brain-progression.js"
-  },
-  "bin": {
+    "game-progression": "brain-progression.js",
     "brain-progression": "bin/brain-progression.js"
   },
   "scripts": {
@@ -21,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/banan-bayan/Game-progression/issues"
   },
-  "homepage": "https://github.com/banan-bayan/Game-progression#readme"
+  "homepage": "https://github.com/banan-bayan/Game-progression#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
