@@ -1,0 +1,25 @@
+{
+  "name": "game-progression",
+  "version": "1.0.0",
+  "description": "*simple math console game*",
+  "main": "index.js",
+  "bin": {
+    "game-progression": "brain-progression.js"
+  },
+  "bin": {
+    "brain-progression": "bin/brain-progression.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banan-bayan/Game-progression.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/banan-bayan/Game-progression/issues"
+  },
+  "homepage": "https://github.com/banan-bayan/Game-progression#readme"
+}
