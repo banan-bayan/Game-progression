@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "*simple math console game*",
   "main": "index.js",
+  "type": "module",
   "bin": {
     "game-progression": "brain-progression.js",
     "brain-progression": "bin/brain-progression.js"
