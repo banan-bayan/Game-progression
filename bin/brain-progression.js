@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-
+#!/usr/bin/env node;
 let startNumber = Math.floor(Math.random() * 10) + 1;
 let progressionNumber = Math.floor(Math.random() * 10) + 1;
 let stringOfNumbers = [];
