@@ -36,20 +36,20 @@ console.log(`Hello ${userName}!`);
 let answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${firstTrueAnswerAndQuestion.qustionString} \n`);
 if (answerUser === firstTrueAnswerAndQuestion.correctNumber) {
   console.log(`Your answer: ${answerUser} Correct!`);
+  const secondTrueAnswerAndQuestion = getAnswerAndQuestion();
+  answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${secondTrueAnswerAndQuestion.qustionString} \n`);
+  if (answerUser === secondTrueAnswerAndQuestion.correctNumber) {
+    console.log(`Your answer: ${answerUser} Correct!`);
+    const thirdTrueAnswerAndQuestion = getAnswerAndQuestion();
+    answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${thirdTrueAnswerAndQuestion.qustionString} \n`);
+    if (answerUser === thirdTrueAnswerAndQuestion.correctNumber) {
+      console.log(`Your answer: ${answerUser} Correct! \n Congratulations, ${userName}!`);
+    } else {
+      console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${thirdTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
+    }
+  } else {
+    console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${secondTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
+  }
 } else {
   console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${firstTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
-}
-const secondTrueAnswerAndQuestion = getAnswerAndQuestion();
-answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${secondTrueAnswerAndQuestion.qustionString} \n`);
-if (answerUser === secondTrueAnswerAndQuestion.correctNumber) {
-  console.log(`Your answer: ${answerUser} Correct!`);
-} else {
-  console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${secondTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
-}
-const thirdTrueAnswerAndQuestion = getAnswerAndQuestion();
-answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${thirdTrueAnswerAndQuestion.qustionString} \n`);
-if (answerUser === thirdTrueAnswerAndQuestion.correctNumber) {
-  console.log(`Your answer: ${answerUser} Correct!`);
-} else {
-  console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${thirdTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
 }
