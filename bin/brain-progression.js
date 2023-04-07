@@ -35,5 +35,5 @@ const vopros = readlineSync.question(`What number is missing in the progression?
 if (vopros === correctNumber) {
   console.log(`Your answer: ${vopros} Correct!`);
 } else {
-  console.log('Your answer: ' + `'${vopros}' ` + '\n' + `'${vopros}'` + ' is wrong answer ;(. Correct answer was ' + `'${correctNumber}'` + '\n' + ` Let's try again, ${userName}!`);
+  console.log(`Your answer: ${vopros} \n ${vopros} is wrong answer ;(. Correct answer was ${correctNumber} Lets try again, ${userName}!`);
 }
