@@ -45,11 +45,11 @@ if (answerUser === firstTrueAnswerAndQuestion.correctNumber) {
     if (answerUser === thirdTrueAnswerAndQuestion.correctNumber) {
       console.log(`Your answer: ${answerUser} Correct! \n Congratulations, ${userName}!`);
     } else {
-      console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${thirdTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
+      console.log(`Your answer: ' ${answerUser} ' \n '${answerUser}' is wrong answer ;(. Correct answer was ${thirdTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
     }
   } else {
-    console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${secondTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
+    console.log(`Your answer: '${answerUser}' \n '${answerUser}' is wrong answer ;(. Correct answer was ${secondTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
   }
 } else {
-  console.log(`Your answer: ${answerUser} \n ${answerUser} is wrong answer ;(. Correct answer was ${firstTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
+  console.log(`Your answer: '${answerUser}' \n '${answerUser}' is wrong answer ;(. Correct answer was ${firstTrueAnswerAndQuestion.correctNumber} Lets try again, ${userName}!`);
 }
