@@ -2,17 +2,22 @@
 
 import readlineSync from 'readline-sync';
 
+const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+const getRandomNumber = () => Math.floor(Math.random() * 10) + 1;
 const getAnswerAndQuestion = () => {
-  let startNumber = Math.floor(Math.random() * 10) + 1;
-  const progressionNumber = Math.floor(Math.random() * 10) + 1;
+  let startNumber = getRandomNumber();
+  const progressionNumber = getRandomNumber();
+  const minLengthProgression = 15;
+  const maxLengthProgression = 29;
+  const lengthProgression = getRndInteger(minLengthProgression, maxLengthProgression);
+  console.log(lengthProgression);
   let stringOfNumbers = [];
-  for (let i = 0; stringOfNumbers.length < 24; i += 1) {
+  for (let i = 0; stringOfNumbers.length < lengthProgression; i += 1) {
     startNumber += progressionNumber;
     stringOfNumbers += `${startNumber} `;
   }
   const arrayOfNumbers = stringOfNumbers.split(' ');
   arrayOfNumbers.pop();
-  const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min)) + min;
   const mysteryDots = '..';
   const correctIndexAnswer = getRndInteger(0, arrayOfNumbers.length);
   const correctNumber = arrayOfNumbers[correctIndexAnswer];
