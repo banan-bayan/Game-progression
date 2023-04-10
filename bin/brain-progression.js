@@ -36,7 +36,6 @@ const getAnswerAndQuestion = () => {
 const userName = 'dima';
 let counter = 0;
 function questionsForUser() {
-  console.log(counter);
   const trueAnswerAndQuestion = getAnswerAndQuestion();
   const answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${trueAnswerAndQuestion.qustionString} \n`);
   if (answerUser === trueAnswerAndQuestion.correctNumber) {
