@@ -31,9 +31,8 @@ const getAnswerAndQuestion = () => {
   };
 };
 
-// const userName = readlineSync.question('Welcome to the Brain Games! May I have your name? ');
-// console.log(`Hello ${userName}!`);
-const userName = 'dima';
+const userName = readlineSync.question('Welcome to the Brain Games! May I have your name? ');
+console.log(`Hello ${userName}!`);
 let counter = 0;
 function questionsForUser() {
   const trueAnswerAndQuestion = getAnswerAndQuestion();
