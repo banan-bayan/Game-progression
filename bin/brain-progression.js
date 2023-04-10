@@ -48,5 +48,6 @@ function questionsForUser() {
     return console.log(`Your answer: ${answerUser}\n
     '${answerUser}' is wrong answer ;(. Correct answer was '${trueAnswerAndQuestion.correctNumber}' Lets try again, ${userName}!`);
   }
+  return undefined;
 }
 questionsForUser();
