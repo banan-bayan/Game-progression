@@ -10,7 +10,7 @@ const getAnswerAndQuestion = () => {
   const minLengthProgression = 15;
   const maxLengthProgression = 29;
   const lengthProgression = getRndInteger(minLengthProgression, maxLengthProgression);
-  console.log(lengthProgression);
+  // console.log(lengthProgression);
   let stringOfNumbers = [];
   for (let i = 0; stringOfNumbers.length < lengthProgression; i += 1) {
     startNumber += progressionNumber;
@@ -31,27 +31,24 @@ const getAnswerAndQuestion = () => {
   };
 };
 
-const firstTrueAnswerAndQuestion = getAnswerAndQuestion();
-
-const userName = readlineSync.question('Welcome to the Brain Games! May I have your name? ');
-console.log(`Hello ${userName}!`);
-let answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${firstTrueAnswerAndQuestion.qustionString} \n`);
-if (answerUser === firstTrueAnswerAndQuestion.correctNumber) {
-  console.log(`Your answer: ${answerUser} Correct!`);
-  const secondTrueAnswerAndQuestion = getAnswerAndQuestion();
-  answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${secondTrueAnswerAndQuestion.qustionString} \n`);
-  if (answerUser === secondTrueAnswerAndQuestion.correctNumber) {
+// const userName = readlineSync.question('Welcome to the Brain Games! May I have your name? ');
+// console.log(`Hello ${userName}!`);
+const userName = 'dima';
+let counter = 0;
+function questionsForUser() {
+  console.log(counter);
+  const trueAnswerAndQuestion = getAnswerAndQuestion();
+  const answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${trueAnswerAndQuestion.qustionString} \n`);
+  if (answerUser === trueAnswerAndQuestion.correctNumber) {
     console.log(`Your answer: ${answerUser} Correct!`);
-    const thirdTrueAnswerAndQuestion = getAnswerAndQuestion();
-    answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${thirdTrueAnswerAndQuestion.qustionString} \n`);
-    if (answerUser === thirdTrueAnswerAndQuestion.correctNumber) {
-      console.log(`Your answer: ${answerUser} Correct! \nCongratulations, ${userName}!`);
-    } else {
-      console.log(`Your answer: ${answerUser}\n '${answerUser}' is wrong answer ;(. Correct answer was '${thirdTrueAnswerAndQuestion.correctNumber}' Lets try again, ${userName}!`);
+    counter += 1;
+    if (counter >= 3) {
+      return console.log(`Congratulations, ${userName}!`);
     }
+    questionsForUser(getAnswerAndQuestion());
   } else {
-    console.log(`Your answer: ${answerUser} \n '${answerUser}' is wrong answer ;(. Correct answer was '${secondTrueAnswerAndQuestion.correctNumber}' Lets try again, ${userName}!`);
+    return console.log(`Your answer: ${answerUser}\n
+    '${answerUser}' is wrong answer ;(. Correct answer was '${trueAnswerAndQuestion.correctNumber}' Lets try again, ${userName}!`);
   }
-} else {
-  console.log(`Your answer: ${answerUser} \n '${answerUser}' is wrong answer ;(. Correct answer was '${firstTrueAnswerAndQuestion.correctNumber}' Lets try again, ${userName}!`);
 }
+questionsForUser();
