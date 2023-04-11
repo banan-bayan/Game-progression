@@ -30,14 +30,14 @@ const getAnswerAndQuestion = () => {
 
 const userName = readlineSync.question('Welcome to the Brain Games! May I have your name? ');
 console.log(`Hello ${userName}!`);
-let counter = 0;
+let counterQuestions = 3;
 function questionsForUser() {
   const trueAnswerAndQuestion = getAnswerAndQuestion();
   const answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${trueAnswerAndQuestion.questionString} \n`);
   if (answerUser === trueAnswerAndQuestion.correctNumber) {
     console.log(`Your answer: ${answerUser} Correct!`);
-    counter += 1;
-    if (counter >= 3) {
+    counterQuestions -= 1;
+    if (counterQuestions <= 0) {
       return console.log(`Congratulations, ${userName}!`);
     }
     questionsForUser(getAnswerAndQuestion());
