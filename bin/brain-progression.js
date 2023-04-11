@@ -7,27 +7,34 @@ const getRandomNumber = () => Math.floor(Math.random() * 10) + 1;
 const getAnswerAndQuestion = () => {
   let startNumber = getRandomNumber();
   const progressionNumber = getRandomNumber();
-  const minLengthProgression = 15;
-  const maxLengthProgression = 29;
+  const minLengthProgression = 5;
+  const maxLengthProgression = 10;
   const lengthProgression = getRndInteger(minLengthProgression, maxLengthProgression);
-  // console.log(lengthProgression);
-  let stringOfNumbers = [];
-  for (let i = 0; stringOfNumbers.length < lengthProgression; i += 1) {
+
+  // let stringOfNumbers = [];
+  const arrayOfNumbers = new Array();
+  for (let i = 0; i < lengthProgression; i += 1) {
+    arrayOfNumbers[i] = startNumber;
     startNumber += progressionNumber;
-    stringOfNumbers += `${startNumber} `;
   }
-  const arrayOfNumbers = stringOfNumbers.split(' ');
-  arrayOfNumbers.pop();
+  // arrayOfNumbers = arrayOfNumbers.split(' ');
+  // arrayOfNumbers.pop();
   const mysteryDots = '..';
   const correctIndexAnswer = getRndInteger(0, arrayOfNumbers.length);
-  const correctNumber = arrayOfNumbers[correctIndexAnswer];
+  let correctNumber = arrayOfNumbers[correctIndexAnswer];
+  correctNumber = String(correctNumber);
   delete arrayOfNumbers[correctIndexAnswer];
   arrayOfNumbers.splice(correctIndexAnswer, 1, mysteryDots);
+  // console.log(arrayOfNumbers);
   const stringOfNumbersWithoutAnswer = arrayOfNumbers.join(' ');
+  // console.log(stringOfNumbersWithoutAnswer);
+
+  // console.log(correctNumber);
+  // console.log(typeof correctNumber);
 
   return {
     correctNumber,
-    qustionString: stringOfNumbersWithoutAnswer,
+    questionString: stringOfNumbersWithoutAnswer,
   };
 };
 
@@ -36,13 +43,15 @@ console.log(`Hello ${userName}!`);
 let counter = 0;
 function questionsForUser() {
   const trueAnswerAndQuestion = getAnswerAndQuestion();
-  const answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${trueAnswerAndQuestion.qustionString} \n`);
+  const answerUser = readlineSync.question(`What number is missing in the progression? \nQuestion: ${trueAnswerAndQuestion.questionString} \n`);
   if (answerUser === trueAnswerAndQuestion.correctNumber) {
     console.log(`Your answer: ${answerUser} Correct!`);
     counter += 1;
     if (counter >= 3) {
       return console.log(`Congratulations, ${userName}!`);
     }
+    // console.log(answerUser);
+    // console.log(typeof answerUser);
     questionsForUser(getAnswerAndQuestion());
   } else {
     return console.log(`Your answer: ${answerUser}\n
