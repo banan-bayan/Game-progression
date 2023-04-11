@@ -10,28 +10,18 @@ const getAnswerAndQuestion = () => {
   const minLengthProgression = 5;
   const maxLengthProgression = 10;
   const lengthProgression = getRndInteger(minLengthProgression, maxLengthProgression);
-
-  // let stringOfNumbers = [];
   const arrayOfNumbers = new Array();
   for (let i = 0; i < lengthProgression; i += 1) {
     arrayOfNumbers[i] = startNumber;
     startNumber += progressionNumber;
   }
-  // arrayOfNumbers = arrayOfNumbers.split(' ');
-  // arrayOfNumbers.pop();
   const mysteryDots = '..';
   const correctIndexAnswer = getRndInteger(0, arrayOfNumbers.length);
   let correctNumber = arrayOfNumbers[correctIndexAnswer];
   correctNumber = String(correctNumber);
   delete arrayOfNumbers[correctIndexAnswer];
   arrayOfNumbers.splice(correctIndexAnswer, 1, mysteryDots);
-  // console.log(arrayOfNumbers);
   const stringOfNumbersWithoutAnswer = arrayOfNumbers.join(' ');
-  // console.log(stringOfNumbersWithoutAnswer);
-
-  // console.log(correctNumber);
-  // console.log(typeof correctNumber);
-
   return {
     correctNumber,
     questionString: stringOfNumbersWithoutAnswer,
@@ -50,12 +40,9 @@ function questionsForUser() {
     if (counter >= 3) {
       return console.log(`Congratulations, ${userName}!`);
     }
-    // console.log(answerUser);
-    // console.log(typeof answerUser);
     questionsForUser(getAnswerAndQuestion());
   } else {
-    return console.log(`Your answer: ${answerUser}\n
-    '${answerUser}' is wrong answer ;(. Correct answer was '${trueAnswerAndQuestion.correctNumber}' Lets try again, ${userName}!`);
+    return console.log(`Your answer: ${answerUser}\n'${answerUser}' is wrong answer ;(. Correct answer was '${trueAnswerAndQuestion.correctNumber}' Lets try again, ${userName}!`);
   }
   return undefined;
 }
