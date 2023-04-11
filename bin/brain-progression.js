@@ -10,7 +10,7 @@ const getAnswerAndQuestion = () => {
   const minLengthProgression = 5;
   const maxLengthProgression = 10;
   const lengthProgression = getRndInteger(minLengthProgression, maxLengthProgression);
-  const arrayOfNumbers = new Array();
+  const arrayOfNumbers = [];
   for (let i = 0; i < lengthProgression; i += 1) {
     arrayOfNumbers[i] = startNumber;
     startNumber += progressionNumber;
